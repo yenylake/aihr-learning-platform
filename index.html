@@ -145,8 +145,27 @@
             <div class="text-7xl">🚀</div>
           </div>
           <div class="bg-white/10 border border-white/20 backdrop-blur-xl rounded-3xl p-6 shadow-2xl">
-            <div class="rounded-2xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80" alt="HR team" class="w-full h-72 object-cover" />
+            <div class="relative rounded-2xl overflow-hidden group/video">
+              <!-- THAY src bên dưới bằng link video giới thiệu thật của bạn (mp4) -->
+              <video id="heroVideo" class="w-full h-72 object-cover" preload="none"
+                poster="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80">
+                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                Trình duyệt của bạn không hỗ trợ video.
+              </video>
+
+              <!-- Nút Play overlay -->
+              <button id="heroPlayBtn" onclick="playHeroVideo()"
+                class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-navy/40 group-hover/video:bg-navy/50 transition">
+                <span class="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-xl group-hover/video:scale-110 transition">
+                  <i data-lucide="play" class="w-7 h-7 text-royal ml-1"></i>
+                </span>
+                <span class="text-white text-sm font-semibold drop-shadow">Xem giới thiệu HR Consultant Hub</span>
+              </button>
+
+              <!-- Nhãn nhỏ -->
+              <span id="heroVideoTag" class="absolute top-3 left-3 inline-flex items-center gap-1.5 bg-black/40 backdrop-blur text-white text-[11px] font-semibold px-2.5 py-1 rounded-full">
+                <i data-lucide="clapperboard" class="w-3.5 h-3.5"></i> Video giới thiệu
+              </span>
             </div>
           </div>
         </div>
@@ -724,6 +743,23 @@
       landing.classList.remove('hidden');
       window.scrollTo(0, 0);
       lucide.createIcons();
+    }
+
+    // Phát video giới thiệu ở banner Hero
+    function playHeroVideo() {
+      const v = document.getElementById('heroVideo');
+      const btn = document.getElementById('heroPlayBtn');
+      const tag = document.getElementById('heroVideoTag');
+      if (btn) btn.style.display = 'none';
+      if (tag) tag.style.display = 'none';
+      v.setAttribute('controls', '');
+      v.play();
+      // Khi video kết thúc, hiện lại nút Play
+      v.onended = () => {
+        v.removeAttribute('controls');
+        if (btn) btn.style.display = 'flex';
+        if (tag) tag.style.display = 'inline-flex';
+      };
     }
 
     // Khởi tạo toàn bộ icon Lucide khi tải trang
