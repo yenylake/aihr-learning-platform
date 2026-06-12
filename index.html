@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIHR — Academy to Innovate HR</title>
+
+  <!-- Tailwind CSS v4 (CDN) -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style type="text/tailwindcss">
+    @theme {
+      --color-navy:        #0f172a;
+      --color-navy-deep:   #1e1b4b;
+      --color-royal:       #2563eb;
+      --color-electric:    #3b82f6;
+      --color-indigo-soft: #4f46e5;
+      --color-iris:        #6366f1;
+      --color-mist:        #f8fafc;
+    }
+
+    * { font-family: 'Inter', system-ui, sans-serif; }
+
+    html { scroll-behavior: smooth; }
+
+    /* Thanh cuộn mảnh, hiện đại */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-12px) rotate(3deg); }
+    }
+    .animate-floaty { animation: floaty 4s ease-in-out infinite; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up { animation: fadeUp .5s ease both; }
+  </style>
+</head>
+
+<body class="bg-white text-slate-800 antialiased">
+
+  <!-- ================================================================== -->
+  <!--  PHẦN 1 :: LANDING PAGE                                            -->
+  <!-- ================================================================== -->
+  <div id="landing-page">
+
+    <!-- ===== Header ===== -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-electric to-indigo-soft flex items-center justify-center shadow-lg shadow-indigo-500/30">
+            <i data-lucide="brain-circuit" class="w-6 h-6 text-white"></i>
+          </div>
+          <div class="leading-tight">
+            <p class="font-extrabold text-lg text-navy tracking-tight">AIHR</p>
+            <p class="text-[10px] text-slate-400 font-medium -mt-0.5">Academy to Innovate HR</p>
+          </div>
+        </div>
+
+        <!-- Nav -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+          <a href="#courses" class="hover:text-royal transition">Sự kiện</a>
+          <a href="#features" class="hover:text-royal transition">Tính năng</a>
+          <a href="#pricing" class="hover:text-royal transition">Bảng giá</a>
+        </nav>
+
+        <!-- CTA -->
+        <button onclick="goToDashboard()"
+          class="group inline-flex items-center gap-2 bg-royal hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-blue-500/30 transition active:scale-95">
+          <i data-lucide="log-in" class="w-4 h-4"></i>
+          Đăng Nhập vào Dashboard
+        </button>
+      </div>
+    </header>
+
+    <!-- ===== Hero ===== -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-indigo-soft via-iris to-navy-deep">
+      <!-- Vòng tròn chìm trang trí -->
+      <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/10 blur-2xl"></div>
+      <div class="absolute top-40 -left-20 w-72 h-72 rounded-full bg-electric/30 blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/3 w-64 h-64 rounded-full border border-white/10"></div>
+      <div class="absolute top-10 right-1/4 w-40 h-40 rounded-full border border-white/10"></div>
+
+      <div class="relative max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left -->
+        <div class="animate-fade-up">
+          <span class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-sm mb-6">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            Nền tảng phát triển Chuyên gia HR Consultant
+          </span>
+          <h1 class="text-5xl lg:text-6xl font-black text-white leading-[1.05] tracking-tight">
+            Nâng Tầm <br/>
+            <span class="bg-gradient-to-r from-cyan-300 to-electric bg-clip-text text-transparent">Sự Nghiệp HR</span><br/>
+            Với AI
+          </h1>
+          <p class="mt-6 text-lg text-indigo-100/90 max-w-md leading-relaxed">
+            Học kỹ năng nhân sự hiện đại, ứng dụng AI vào tuyển dụng, phân tích dữ liệu và chuyển đổi số — mọi lúc, mọi nơi.
+          </p>
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <button onclick="goToDashboard()"
+              class="group inline-flex items-center gap-2 bg-white text-navy font-semibold px-6 py-3.5 rounded-xl shadow-xl hover:shadow-2xl transition active:scale-95">
+              <i data-lucide="play-circle" class="w-5 h-5 text-royal"></i>
+              Đăng ký ngay
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition"></i>
+            </button>
+            <button class="inline-flex items-center gap-2 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/30 hover:bg-white/10 transition">
+              <i data-lucide="circle-play" class="w-5 h-5"></i>
+              Xem demo
+            </button>
+          </div>
+
+          <!-- Social proof -->
+          <div class="mt-10 flex items-center gap-6 text-indigo-100/80">
+            <div>
+              <p class="text-2xl font-extrabold text-white">50K+</p>
+              <p class="text-xs">Học viên HR</p>
+            </div>
+            <div class="w-px h-10 bg-white/20"></div>
+            <div>
+              <p class="text-2xl font-extrabold text-white">120+</p>
+              <p class="text-xs">Khóa học</p>
+            </div>
+            <div class="w-px h-10 bg-white/20"></div>
+            <div>
+              <p class="text-2xl font-extrabold text-white">4.9★</p>
+              <p class="text-xs">Đánh giá</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: card minh họa nổi + tên lửa -->
+        <div class="relative hidden lg:block">
+          <div class="absolute -top-6 right-10 animate-floaty">
+            <div class="text-7xl">🚀</div>
+          </div>
+          <div class="bg-white/10 border border-white/20 backdrop-blur-xl rounded-3xl p-6 shadow-2xl">
+            <div class="rounded-2xl overflow-hidden mb-4">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80" alt="HR team" class="w-full h-48 object-cover" />
+            </div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-emerald-400/20 text-emerald-200 text-[11px] font-bold px-2.5 py-1 rounded-full">● Đang học</span>
+              <span class="text-white/70 text-xs">68% hoàn thành</span>
+            </div>
+            <h3 class="text-white font-bold text-lg">People Analytics</h3>
+            <p class="text-indigo-100/70 text-sm mt-1">Phân tích dữ liệu nhân sự ra quyết định</p>
+            <div class="mt-4 h-2 bg-white/15 rounded-full overflow-hidden">
+              <div class="h-full w-[68%] bg-gradient-to-r from-cyan-300 to-electric rounded-full"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Logos / trust bar ===== -->
+    <section class="bg-mist border-y border-slate-100">
+      <div class="max-w-7xl mx-auto px-6 py-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-4 text-slate-400 font-bold text-lg">
+        <span class="opacity-60">Google</span>
+        <span class="opacity-60">Microsoft</span>
+        <span class="opacity-60">Unilever</span>
+        <span class="opacity-60">Heineken</span>
+        <span class="opacity-60">Shopee</span>
+        <span class="opacity-60">VinGroup</span>
+      </div>
+    </section>
+
+    <!-- ===== Features ===== -->
+    <section id="features" class="max-w-7xl mx-auto px-6 py-24">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-4xl font-black text-navy tracking-tight">Bệ phóng bạn cần để trở thành Chuyên gia tư vấn HR</h2>
+        <p class="text-slate-500 mt-4">Một nền tảng học tập toàn diện được thiết kế cho người làm nhân sự hiện đại.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- card -->
+        <div class="group bg-white rounded-2xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center mb-5 group-hover:scale-110 transition">
+            <i data-lucide="bot" class="w-7 h-7 text-royal"></i>
+          </div>
+          <h3 class="font-bold text-lg text-navy">AIHR Copilot</h3>
+          <p class="text-slate-500 text-sm mt-2 leading-relaxed">Trợ lý AI cá nhân hỗ trợ giải đáp mọi thắc mắc về nhân sự 24/7.</p>
+        </div>
+        <div class="group bg-white rounded-2xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="w-14 h-14 rounded-2xl bg-indigo-50 flex items-center justify-center mb-5 group-hover:scale-110 transition">
+            <i data-lucide="map" class="w-7 h-7 text-indigo-soft"></i>
+          </div>
+          <h3 class="font-bold text-lg text-navy">HR Career Map</h3>
+          <p class="text-slate-500 text-sm mt-2 leading-relaxed">Lộ trình sự nghiệp rõ ràng giúp bạn biết chính xác bước tiếp theo.</p>
+        </div>
+        <div class="group bg-white rounded-2xl p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition">
+          <div class="w-14 h-14 rounded-2xl bg-cyan-50 flex items-center justify-center mb-5 group-hover:scale-110 transition">
+            <i data-lucide="library" class="w-7 h-7 text-cyan-600"></i>
+          </div>
+          <h3 class="font-bold text-lg text-navy">Resource Library</h3>
+          <p class="text-slate-500 text-sm mt-2 leading-relaxed">Hàng nghìn template, playbook và công cụ HR sẵn sàng sử dụng.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Courses ===== -->
+    <section id="courses" class="bg-mist py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-end justify-between mb-12">
+          <div>
+            <span class="text-royal font-bold text-sm uppercase tracking-wider">Sự kiện</span>
+            <h2 class="text-4xl font-black text-navy mt-3 tracking-tight">Sắp diễn ra</h2>
+          </div>
+          <a href="#" class="hidden sm:inline-flex items-center gap-2 text-royal font-semibold text-sm hover:gap-3 transition-all">
+            Xem tất cả <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Course card 1 -->
+          <article class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=80" class="w-full h-44 object-cover" alt="AI for HR" />
+              <span class="absolute top-3 left-3 bg-electric text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow">New</span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 text-xs text-slate-400 mb-2">
+                <i data-lucide="clock" class="w-3.5 h-3.5"></i> 27 giờ
+                <span>·</span>
+                <i data-lucide="bar-chart-3" class="w-3.5 h-3.5"></i> Nâng cao
+              </div>
+              <h3 class="font-bold text-lg text-navy">Artificial Intelligence for HR</h3>
+              <p class="text-slate-500 text-sm mt-2">Ứng dụng AI vào toàn bộ quy trình nhân sự hiện đại.</p>
+              <button onclick="goToDashboard()" class="mt-5 w-full inline-flex items-center justify-center gap-2 bg-navy text-white text-sm font-semibold py-3 rounded-xl hover:bg-navy-deep transition">
+                Bắt đầu học <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Course card 2 -->
+          <article class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=80" class="w-full h-44 object-cover" alt="Digital HR" />
+              <span class="absolute top-3 left-3 bg-electric text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow">New</span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 text-xs text-slate-400 mb-2">
+                <i data-lucide="clock" class="w-3.5 h-3.5"></i> 18 giờ
+                <span>·</span>
+                <i data-lucide="bar-chart-3" class="w-3.5 h-3.5"></i> Trung cấp
+              </div>
+              <h3 class="font-bold text-lg text-navy">Digital HR Transformation</h3>
+              <p class="text-slate-500 text-sm mt-2">Dẫn dắt chuyển đổi số trong phòng nhân sự của bạn.</p>
+              <button onclick="goToDashboard()" class="mt-5 w-full inline-flex items-center justify-center gap-2 bg-navy text-white text-sm font-semibold py-3 rounded-xl hover:bg-navy-deep transition">
+                Bắt đầu học <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Course card 3 -->
+          <article class="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" class="w-full h-44 object-cover" alt="People Analytics" />
+              <span class="absolute top-3 left-3 bg-amber-400 text-amber-900 text-[11px] font-bold px-2.5 py-1 rounded-full shadow">Hot</span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-2 text-xs text-slate-400 mb-2">
+                <i data-lucide="clock" class="w-3.5 h-3.5"></i> 22 giờ
+                <span>·</span>
+                <i data-lucide="bar-chart-3" class="w-3.5 h-3.5"></i> Nâng cao
+              </div>
+              <h3 class="font-bold text-lg text-navy">People Analytics</h3>
+              <p class="text-slate-500 text-sm mt-2">Ra quyết định nhân sự dựa trên dữ liệu thực tế.</p>
+              <button onclick="goToDashboard()" class="mt-5 w-full inline-flex items-center justify-center gap-2 bg-navy text-white text-sm font-semibold py-3 rounded-xl hover:bg-navy-deep transition">
+                Bắt đầu học <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Pricing (CTA gọn) ===== -->
+    <section id="pricing" class="max-w-7xl mx-auto px-6 py-24">
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo-soft via-iris to-navy-deep p-12 lg:p-16 text-center">
+        <div class="absolute -top-20 -right-10 w-72 h-72 rounded-full bg-white/10 blur-2xl"></div>
+        <div class="absolute -bottom-20 -left-10 w-72 h-72 rounded-full bg-electric/20 blur-2xl"></div>
+        <div class="relative">
+          <h2 class="text-4xl font-black text-white tracking-tight">Sẵn sàng nâng tầm sự nghiệp?</h2>
+          <p class="text-indigo-100/90 mt-4 max-w-xl mx-auto">Truy cập toàn bộ khóa học, công cụ AI và cộng đồng HR chỉ với một thành viên duy nhất.</p>
+          <button onclick="goToDashboard()" class="mt-8 inline-flex items-center gap-2 bg-white text-navy font-semibold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition active:scale-95">
+            Vào Dashboard ngay <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="bg-navy text-slate-400">
+      <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-electric to-indigo-soft flex items-center justify-center">
+            <i data-lucide="brain-circuit" class="w-5 h-5 text-white"></i>
+          </div>
+          <span class="font-extrabold text-white">AIHR</span>
+        </div>
+        <p class="text-sm">© 2026 Academy to Innovate HR. Mô phỏng giao diện.</p>
+        <div class="flex items-center gap-4">
+          <i data-lucide="linkedin" class="w-5 h-5 hover:text-white transition cursor-pointer"></i>
+          <i data-lucide="facebook" class="w-5 h-5 hover:text-white transition cursor-pointer"></i>
+          <i data-lucide="youtube" class="w-5 h-5 hover:text-white transition cursor-pointer"></i>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ================================================================== -->
+  <!--  PHẦN 2 :: DASHBOARD                                               -->
+  <!-- ================================================================== -->
+  <div id="dashboard-page" class="hidden h-screen overflow-hidden bg-mist">
+    <div class="flex h-full">
+
+      <!-- ============ A. SIDEBAR TRÁI ============ -->
+      <aside class="w-72 shrink-0 bg-white border-r border-slate-100 flex flex-col h-full">
+        <!-- Logo + Search -->
+        <div class="p-5 border-b border-slate-50">
+          <div class="flex items-center gap-2.5 mb-5">
+            <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-electric to-indigo-soft flex items-center justify-center shadow-lg shadow-indigo-500/30">
+              <i data-lucide="brain-circuit" class="w-5 h-5 text-white"></i>
+            </div>
+            <span class="font-extrabold text-lg text-navy tracking-tight">AIHR</span>
+          </div>
+          <div class="relative">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input type="text" placeholder="Search everything..."
+              class="w-full bg-mist border border-slate-100 rounded-full pl-10 pr-4 py-2.5 text-sm text-slate-600 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-electric/30 focus:bg-white transition" />
+          </div>
+        </div>
+
+        <!-- Menu scrollable -->
+        <nav class="flex-1 overflow-y-auto px-3 py-4 space-y-6">
+          <!-- Mục chính -->
+          <div>
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-blue-50 text-royal font-semibold text-sm">
+              <i data-lucide="home" class="w-[18px] h-[18px]"></i> My Home
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 font-medium text-sm transition mt-1">
+              <i data-lucide="route" class="w-[18px] h-[18px]"></i> My Learning Journey
+            </a>
+          </div>
+
+          <!-- Tools -->
+          <div>
+            <p class="px-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Tools</p>
+            <div class="space-y-1">
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 font-medium text-sm transition">
+                <i data-lucide="library" class="w-[18px] h-[18px]"></i> Resource Library
+              </a>
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 font-medium text-sm transition">
+                <i data-lucide="bot" class="w-[18px] h-[18px]"></i> AIHR Copilot
+              </a>
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 font-medium text-sm transition">
+                <i data-lucide="map" class="w-[18px] h-[18px]"></i> HR Career Map
+              </a>
+              <a href="#" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 font-medium text-sm transition">
+                <span class="flex items-center gap-3"><i data-lucide="target" class="w-[18px] h-[18px]"></i> T-Shaped HR Assessment</span>
+                <span class="bg-electric text-white text-[10px] font-bold px-1.5 py-0.5 rounded">New</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Connect -->
+          <div>
+            <p class="px-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Connect</p>
+            <div class="space-y-1">
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 font-medium text-sm transition">
+                <i data-lucide="users" class="w-[18px] h-[18px]"></i> Community
+              </a>
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 font-medium text-sm transition">
+                <i data-lucide="calendar-days" class="w-[18px] h-[18px]"></i> Events
+              </a>
+            </div>
+          </div>
+
+          <!-- Learn -->
+          <div>
+            <p class="px-3 text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Learn</p>
+            <div class="space-y-1">
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 font-medium text-sm transition">
+                <i data-lucide="graduation-cap" class="w-[18px] h-[18px]"></i> All Courses
+              </a>
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 font-medium text-sm transition">
+                <i data-lucide="book-open" class="w-[18px] h-[18px]"></i> Mini Courses
+              </a>
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 font-medium text-sm transition">
+                <i data-lucide="heart-handshake" class="w-[18px] h-[18px]"></i> Soft Skills Hub
+              </a>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Settings dưới cùng -->
+        <div class="p-3 border-t border-slate-50">
+          <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-slate-50 font-medium text-sm transition">
+            <i data-lucide="settings" class="w-[18px] h-[18px]"></i> Settings
+          </a>
+          <button onclick="goToLanding()" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-600 hover:bg-red-50 hover:text-red-600 font-medium text-sm transition mt-1">
+            <i data-lucide="log-out" class="w-[18px] h-[18px]"></i> Đăng xuất
+          </button>
+        </div>
+      </aside>
+
+      <!-- ============ B. NỘI DUNG CHÍNH ============ -->
+      <main class="flex-1 h-full overflow-y-auto">
+
+        <!-- Top bar (onboarding + bell + avatar) -->
+        <div class="sticky top-0 z-30 bg-mist/80 backdrop-blur-md px-8 py-4 flex items-center justify-end gap-5 border-b border-slate-100">
+          <!-- Onboarding progress -->
+          <div class="hidden sm:flex items-center gap-3 bg-white rounded-full pl-4 pr-2 py-1.5 border border-slate-100 shadow-sm">
+            <span class="text-xs font-semibold text-slate-600">Your onboarding</span>
+            <div class="flex items-center gap-2">
+              <div class="w-20 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div class="h-full w-[9%] bg-electric rounded-full"></div>
+              </div>
+              <span class="text-xs font-bold text-royal">9%</span>
+            </div>
+          </div>
+
+          <!-- Bell -->
+          <button class="relative w-10 h-10 rounded-full bg-white border border-slate-100 shadow-sm flex items-center justify-center hover:bg-slate-50 transition">
+            <i data-lucide="bell" class="w-5 h-5 text-slate-600"></i>
+            <span class="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white"></span>
+          </button>
+
+          <!-- Avatar -->
+          <button class="flex items-center gap-2.5 group">
+            <img src="https://i.pravatar.cc/80?img=47" class="w-10 h-10 rounded-full object-cover ring-2 ring-white shadow" alt="Yến" />
+            <div class="hidden md:block text-left leading-tight">
+              <p class="text-sm font-bold text-navy">Yến</p>
+              <p class="text-[11px] text-slate-400">HR Specialist</p>
+            </div>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-hover:text-slate-600"></i>
+          </button>
+        </div>
+
+        <!-- Grid: content + right utility -->
+        <div class="px-8 py-6 grid grid-cols-1 xl:grid-cols-[1fr_320px] gap-6">
+
+          <!-- ===== Cột nội dung ===== -->
+          <div class="space-y-6">
+
+            <!-- Top Banner -->
+            <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-soft via-iris to-navy-deep p-8 shadow-lg">
+              <!-- vòng tròn chìm -->
+              <div class="absolute -top-16 -right-10 w-56 h-56 rounded-full bg-white/10"></div>
+              <div class="absolute top-10 right-32 w-32 h-32 rounded-full border border-white/10"></div>
+              <div class="absolute -bottom-20 right-1/4 w-48 h-48 rounded-full bg-electric/20 blur-xl"></div>
+
+              <div class="relative flex items-center justify-between">
+                <div class="max-w-lg">
+                  <span class="text-white/60 text-xs font-bold tracking-[0.2em] uppercase">My Home</span>
+                  <h1 class="text-3xl font-black text-white mt-2">Welcome Yến 👋</h1>
+                  <p class="text-indigo-100/90 mt-3 leading-relaxed">
+                    Mỗi giờ học hôm nay là một bước tiến cho sự nghiệp ngày mai. Hãy tiếp tục hành trình chinh phục kỹ năng HR của bạn nhé!
+                  </p>
+                </div>
+                <!-- Tên lửa -->
+                <div class="hidden md:block animate-floaty text-7xl shrink-0">🚀</div>
+              </div>
+            </section>
+
+            <!-- Widget NEW: AI Tutorials -->
+            <section class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+              <div class="flex flex-col sm:flex-row">
+                <div class="sm:w-52 shrink-0">
+                  <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&q=80" class="w-full h-44 sm:h-full object-cover" alt="Instructor" />
+                </div>
+                <div class="p-6 flex-1">
+                  <span class="inline-block bg-emerald-50 text-emerald-600 text-[11px] font-bold px-2.5 py-1 rounded-full mb-3">NEW</span>
+                  <h3 class="text-xl font-bold text-navy">AI Tutorials for Talent Acquisition</h3>
+                  <p class="text-slate-500 text-sm mt-2 leading-relaxed">
+                    Học cách ứng dụng <span class="font-semibold text-slate-700">Google Gemini, ChatGPT</span> và <span class="font-semibold text-slate-700">Claude</span> vào quy trình tuyển dụng — từ viết JD, sàng lọc CV đến phỏng vấn.
+                  </p>
+                  <button class="mt-4 inline-flex items-center gap-2 bg-royal hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-blue-500/30 transition active:scale-95">
+                    Explore the Mini Course <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <!-- Your courses -->
+            <section>
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg font-bold text-navy">Your courses</h2>
+                <button class="inline-flex items-center gap-2 text-sm font-semibold text-royal hover:text-blue-700 transition">
+                  <i data-lucide="plus-circle" class="w-4 h-4"></i> Add/remove courses
+                </button>
+              </div>
+
+              <!-- Course card lớn -->
+              <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                  <!-- Progress ring -->
+                  <div class="relative w-24 h-24 shrink-0">
+                    <svg class="w-24 h-24 -rotate-90" viewBox="0 0 100 100">
+                      <circle cx="50" cy="50" r="42" fill="none" stroke="#e2e8f0" stroke-width="8" />
+                      <circle cx="50" cy="50" r="42" fill="none" stroke="url(#grad)" stroke-width="8"
+                        stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="261" />
+                      <defs>
+                        <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#f97316" />
+                          <stop offset="100%" stop-color="#3b82f6" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                      <span class="text-xl font-black text-navy">1%</span>
+                      <span class="text-[10px] text-slate-400 font-medium">hoàn thành</span>
+                    </div>
+                  </div>
+
+                  <!-- Info -->
+                  <div class="flex-1">
+                    <h3 class="text-xl font-bold text-navy">Artificial Intelligence for HR</h3>
+                    <div class="flex items-center gap-2 text-sm text-slate-500 mt-2">
+                      <i data-lucide="clock" class="w-4 h-4"></i>
+                      <span>27 hours remaining</span>
+                    </div>
+                    <button class="mt-4 inline-flex items-center gap-2 text-royal font-bold text-sm hover:gap-3 transition-all">
+                      Continue Learning <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Box gợi ý -->
+                <div id="reco-box" class="mt-5 relative flex items-start gap-3 bg-blue-50/60 border border-blue-100 rounded-xl p-4">
+                  <div class="w-9 h-9 rounded-lg bg-electric/10 flex items-center justify-center shrink-0">
+                    <i data-lucide="sparkles" class="w-5 h-5 text-royal"></i>
+                  </div>
+                  <p class="text-sm text-slate-600 pr-6">
+                    <span class="font-semibold text-navy">Let us guide you</span> with personalized recommendations based on your learning goals and progress.
+                  </p>
+                  <button onclick="document.getElementById('reco-box').remove()" class="absolute top-3 right-3 text-slate-400 hover:text-slate-600 transition">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- ===== C. CỘT TIỆN ÍCH PHẢI ===== -->
+          <aside class="space-y-6">
+
+            <!-- Your streak -->
+            <section class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
+              <h3 class="font-bold text-navy mb-4">Your streak</h3>
+
+              <div class="flex items-center gap-3 mb-5">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center shadow-lg shadow-orange-500/30">
+                  <i data-lucide="flame" class="w-7 h-7 text-white"></i>
+                </div>
+                <div>
+                  <p class="text-2xl font-black text-navy leading-none">1 <span class="text-base font-semibold text-slate-400">week</span></p>
+                  <p class="text-sm text-slate-500 mt-1">Start a new streak</p>
+                </div>
+              </div>
+
+              <!-- Progress this week -->
+              <div class="bg-mist rounded-xl p-4">
+                <div class="flex items-center justify-between text-[11px] font-bold text-slate-400 uppercase tracking-wide mb-2">
+                  <span>This week</span>
+                  <span>0/30 min</span>
+                </div>
+                <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                  <div class="h-full w-0 bg-gradient-to-r from-electric to-indigo-soft rounded-full"></div>
+                </div>
+              </div>
+
+              <button class="mt-4 w-full inline-flex items-center justify-center gap-2 bg-navy hover:bg-navy-deep text-white text-sm font-semibold py-3 rounded-xl transition active:scale-95">
+                <i data-lucide="calendar-clock" class="w-4 h-4"></i> Schedule learning time
+              </button>
+            </section>
+
+            <!-- Quick stats -->
+            <section class="bg-white rounded-2xl border border-slate-100 shadow-sm p-6">
+              <h3 class="font-bold text-navy mb-4">Quick stats</h3>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="flex items-center gap-2 text-sm text-slate-500"><i data-lucide="award" class="w-4 h-4 text-amber-500"></i> Chứng chỉ</span>
+                  <span class="font-bold text-navy">2</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="flex items-center gap-2 text-sm text-slate-500"><i data-lucide="book-check" class="w-4 h-4 text-emerald-500"></i> Bài đã học</span>
+                  <span class="font-bold text-navy">18</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="flex items-center gap-2 text-sm text-slate-500"><i data-lucide="timer" class="w-4 h-4 text-royal"></i> Tổng giờ học</span>
+                  <span class="font-bold text-navy">12h</span>
+                </div>
+              </div>
+            </section>
+
+            <!-- Upcoming event -->
+            <section class="rounded-2xl bg-gradient-to-br from-navy to-navy-deep p-6 text-white shadow-lg">
+              <span class="text-[11px] font-bold tracking-wider uppercase text-indigo-200">Sự kiện sắp tới</span>
+              <h3 class="font-bold mt-2">HR Tech Webinar 2026</h3>
+              <p class="text-indigo-100/80 text-sm mt-1 flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4"></i> 18 Tháng 6, 20:00</p>
+              <button class="mt-4 w-full bg-white/15 hover:bg-white/25 border border-white/20 text-white text-sm font-semibold py-2.5 rounded-xl transition">
+                Đăng ký ngay
+              </button>
+            </section>
+          </aside>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- ================================================================== -->
+  <!--  JAVASCRIPT — chuyển trang đơn giản (ẩn/hiện)                       -->
+  <!-- ================================================================== -->
+  <script>
+    const landing   = document.getElementById('landing-page');
+    const dashboard = document.getElementById('dashboard-page');
+
+    function goToDashboard() {
+      landing.classList.add('hidden');
+      dashboard.classList.remove('hidden');
+      window.scrollTo(0, 0);
+      lucide.createIcons(); // render lại icon cho phần dashboard
+    }
+
+    function goToLanding() {
+      dashboard.classList.add('hidden');
+      landing.classList.remove('hidden');
+      window.scrollTo(0, 0);
+      lucide.createIcons();
+    }
+
+    // Khởi tạo toàn bộ icon Lucide khi tải trang
+    lucide.createIcons();
+  </script>
+</body>
+</html>
