@@ -48,6 +48,18 @@
       to   { opacity: 1; transform: translateY(0); }
     }
     .animate-fade-up { animation: fadeUp .5s ease both; }
+
+    /* Marquee trôi logo */
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .animate-marquee { animation: marquee 24s linear infinite; }
+    .marquee-mask:hover .animate-marquee { animation-play-state: paused; }
+    .marquee-mask {
+      -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+              mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    }
   </style>
 </head>
 
@@ -140,15 +152,26 @@
       </div>
     </section>
 
-    <!-- ===== Logos / trust bar ===== -->
-    <section class="bg-mist border-y border-slate-100">
-      <div class="max-w-7xl mx-auto px-6 py-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-4 text-slate-400 font-bold text-lg">
-        <span class="opacity-60">Google</span>
-        <span class="opacity-60">Microsoft</span>
-        <span class="opacity-60">Unilever</span>
-        <span class="opacity-60">Heineken</span>
-        <span class="opacity-60">Shopee</span>
-        <span class="opacity-60">VinGroup</span>
+    <!-- ===== Logos / trust bar (marquee) ===== -->
+    <section class="bg-mist border-y border-slate-100 py-8">
+      <p class="text-center text-xs font-semibold uppercase tracking-widest text-slate-400 mb-6">Được tin dùng bởi đội ngũ Nhân sự tại</p>
+      <div class="marquee-mask overflow-hidden">
+        <div class="animate-marquee flex w-max items-center gap-x-16 pr-16 text-2xl font-extrabold tracking-tight">
+          <!-- Bộ logo (lặp lại 2 lần để trôi liền mạch) -->
+          <span class="shrink-0"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></span>
+          <span class="shrink-0" style="color:#737373">Microsoft</span>
+          <span class="shrink-0" style="color:#1F36C7">Unilever</span>
+          <span class="shrink-0" style="color:#007A33">Heineken</span>
+          <span class="shrink-0" style="color:#EE4D2D">Shopee</span>
+          <span class="shrink-0" style="color:#DA1A32">VinGroup</span>
+
+          <span class="shrink-0" aria-hidden="true"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></span>
+          <span class="shrink-0" aria-hidden="true" style="color:#737373">Microsoft</span>
+          <span class="shrink-0" aria-hidden="true" style="color:#1F36C7">Unilever</span>
+          <span class="shrink-0" aria-hidden="true" style="color:#007A33">Heineken</span>
+          <span class="shrink-0" aria-hidden="true" style="color:#EE4D2D">Shopee</span>
+          <span class="shrink-0" aria-hidden="true" style="color:#DA1A32">VinGroup</span>
+        </div>
       </div>
     </section>
 
